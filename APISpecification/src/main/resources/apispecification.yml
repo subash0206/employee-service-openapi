@@ -1,0 +1,66 @@
+openapi: 3.0.3
+
+info:
+  title: OpenAPI specification for Employee Service
+  version: '1.0.0'
+
+tags:
+  - name: employee
+    description: Operations about Employees
+
+paths:
+  /employees:
+    get:
+      summary: Get all employees
+      operationId: findAll
+      tags:
+        - employee
+      responses:
+        404:
+          description: Employee records not found
+        200:
+          description: Successfull Operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Employee'
+  /employees/{id}:
+    get:
+      summary: Get employee by id
+      operationId: findById
+      tags:
+        - employee
+      parameters:
+        - name: id
+          in: path
+          description: Employee id
+          required: true
+          schema:
+            type: string
+      responses:
+        404:
+          description: Employee not found
+        200:
+          description: Successfull Operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Employee'
+
+components:
+  schemas:
+    Employee:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        phoneNumber:
+          type: string
+        createdate:
+          type: string
+          format: date
+          example: 30-01-2022
