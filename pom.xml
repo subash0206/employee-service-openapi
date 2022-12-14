@@ -17,8 +17,8 @@
 	<version>0.0.1-SNAPSHOT</version>
 
 	<modules>
-		<module>APISpecification</module>
-		<module>EmployeeService</module>
+		<module>employee-api</module>
+		<module>employee-service</module>
 	</modules>
 
 	<dependencies>

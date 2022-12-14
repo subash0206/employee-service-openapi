@@ -12,7 +12,7 @@
 
     <artifactId>employee-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>EmployeeService</name>
+    <name>employee-service</name>
     <description>OpenApi specification for Employee Service</description>
 
     <properties>

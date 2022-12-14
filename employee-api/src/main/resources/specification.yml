@@ -5,7 +5,7 @@ info:
   version: '1.0.0'
 
 tags:
-  - name: employee
+  - name: employees
     description: Operations about Employees
 
 paths:
@@ -14,7 +14,7 @@ paths:
       summary: Get all employees
       operationId: findAll
       tags:
-        - employee
+        - employees
       responses:
         404:
           description: Employee records not found
@@ -31,7 +31,7 @@ paths:
       summary: Get employee by id
       operationId: findById
       tags:
-        - employee
+        - employees
       parameters:
         - name: id
           in: path
@@ -63,4 +63,4 @@ components:
         createdate:
           type: string
           format: date
-          example: 30-01-2022
+          example: 2022-01-25
