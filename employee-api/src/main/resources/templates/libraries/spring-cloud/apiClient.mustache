@@ -1,0 +1,7 @@
+package {{package}};
+
+import org.springframework.cloud.openfeign.FeignClient;
+
+@FeignClient(name="${{openbrace}}{{classVarName}}.name:{{classVarName}}{{closebrace}}")
+public interface {{classname}}Client extends {{classname}} {
+}

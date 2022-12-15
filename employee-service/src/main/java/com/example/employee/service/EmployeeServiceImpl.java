@@ -2,7 +2,6 @@ package com.example.employee.service;
 
 import com.example.employee.api.EmployeesApiDelegate;
 import com.example.employee.model.Employee;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -27,7 +26,7 @@ public class EmployeeServiceImpl implements EmployeesApiDelegate {
                 .stream()
                 .filter(e -> e.getId().equals(id))
                 .findFirst();
-        if(!employee.isEmpty())
+        if (!employee.isPresent())
             return ResponseEntity.ok(employee.get());
 
         return ResponseEntity.notFound().build();
@@ -44,7 +43,7 @@ public class EmployeeServiceImpl implements EmployeesApiDelegate {
 
     private Employee createEmployee(String id, String name, String phoneNo) {
         Employee employee = new Employee();
-        employee.setId(id.toString());
+        employee.setId(id);
         employee.setName(name);
         employee.setPhoneNumber(phoneNo);
         employee.setCreatedate(LocalDate.now());

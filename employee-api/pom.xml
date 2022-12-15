@@ -33,6 +33,11 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <version>3.1.5</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -51,12 +56,14 @@
                                 ${project.basedir}/src/main/resources/specification.yml
                             </inputSpec>
                             <generatorName>spring</generatorName>
+                            <library>spring-cloud</library>
+                            <templateDirectory>${project.basedir}/src/main/resources/templates</templateDirectory>
                             <apiPackage>com.example.employee.api</apiPackage>
                             <modelPackage>com.example.employee.model</modelPackage>
                             <supportingFilesToGenerate>ApiUtil.java</supportingFilesToGenerate>
                             <configOptions>
                                 <delegatePattern>true</delegatePattern>
-                                <additionalModelTypeAnnotations>@lombok.NoArgsConstructor @lombok.AllArgsConstructor</additionalModelTypeAnnotations>
+<!--                                <additionalModelTypeAnnotations>@lombok.NoArgsConstructor @lombok.AllArgsConstructor</additionalModelTypeAnnotations>-->
                             </configOptions>
                         </configuration>
                     </execution>
