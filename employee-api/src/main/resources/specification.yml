@@ -2,7 +2,8 @@ openapi: 3.0.3
 
 info:
   title: OpenAPI specification for Employee Service
-  version: '1.0.0'
+  description: This is a sample springboot appication with rest APIs using OpenAPI specification 3.0
+  version: 0.0.1-SNAPSHOT
 
 tags:
   - name: employees

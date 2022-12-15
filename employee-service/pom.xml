@@ -15,11 +15,6 @@
     <name>employee-service</name>
     <description>OpenApi specification for Employee Service</description>
 
-    <properties>
-        <maven.compiler.source>19</maven.compiler.source>
-        <maven.compiler.target>19</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
     <dependencies>
         <dependency>
             <groupId>com.example.employee</groupId>

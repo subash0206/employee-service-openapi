@@ -11,13 +11,6 @@
 
     <artifactId>employee-api</artifactId>
 
-    <properties>
-        <java.version>11</java.version>
-        <maven.compiler.source>19</maven.compiler.source>
-        <maven.compiler.target>19</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.springdoc</groupId>
@@ -56,10 +49,11 @@
                                 ${project.basedir}/src/main/resources/specification.yml
                             </inputSpec>
                             <generatorName>spring</generatorName>
-                            <library>spring-cloud</library>
-                            <templateDirectory>${project.basedir}/src/main/resources/templates</templateDirectory>
+<!--                            <library>spring-cloud</library>-->
+<!--                            <templateDirectory>${project.basedir}/src/main/resources/templates</templateDirectory>-->
                             <apiPackage>com.example.employee.api</apiPackage>
                             <modelPackage>com.example.employee.model</modelPackage>
+                            <modelNameSuffix>Dto</modelNameSuffix>
                             <supportingFilesToGenerate>ApiUtil.java</supportingFilesToGenerate>
                             <configOptions>
                                 <delegatePattern>true</delegatePattern>

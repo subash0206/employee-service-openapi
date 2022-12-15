@@ -1,7 +1,7 @@
 package com.example.employee.service;
 
 import com.example.employee.api.EmployeesApiDelegate;
-import com.example.employee.model.Employee;
+import com.example.employee.model.EmployeeDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -13,23 +13,23 @@ import java.util.Optional;
 @Service
 public class EmployeeServiceImpl implements EmployeesApiDelegate {
 
-    private List<Employee> employees;
+    private List<EmployeeDto> employees;
 
-    @Override
-    public ResponseEntity<List<Employee>> findAll() {
+//    @Override
+    public ResponseEntity<List<EmployeeDto>> findAll() {
         return ResponseEntity.ok(employees);
     }
 
     @Override
-    public ResponseEntity<Employee> findById(String id) {
-        Optional<Employee> employee = employees
+    public ResponseEntity<EmployeeDto> findById(String id) {
+        Optional<EmployeeDto> employee = employees
                 .stream()
                 .filter(e -> e.getId().equals(id))
                 .findFirst();
-        if (!employee.isPresent())
-            return ResponseEntity.ok(employee.get());
+        return employee
+                .map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
 
-        return ResponseEntity.notFound().build();
     }
 
     @PostConstruct
@@ -41,8 +41,8 @@ public class EmployeeServiceImpl implements EmployeesApiDelegate {
         );
     }
 
-    private Employee createEmployee(String id, String name, String phoneNo) {
-        Employee employee = new Employee();
+    private EmployeeDto createEmployee(String id, String name, String phoneNo) {
+        EmployeeDto employee = new EmployeeDto();
         employee.setId(id);
         employee.setName(name);
         employee.setPhoneNumber(phoneNo);
